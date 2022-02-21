@@ -1,30 +1,18 @@
 const { Database } = require('beta.db')
 const setting = new Database('./data/config.json')
-const language = new Database('./lang/config.json')
 
-var telegram = setting.get('telegram')
-var dis = setting.get('discord')
-var langconfig = setting.get('general')
-
+var TL_token = setting.get('tltoken');
+var DIS_token = setting.get('distoken');
+var LANG = setting.get('general').lang; // KR / EN / IR
 
 const { Telegraf } = require('telegraf')
-const bot = new Telegraf(telegram.token)
+const bot = new Telegraf(TL_token)
 bot.launch()
 
 const { Client } = require('discord.js')
 const client = new Client()
-client.login(dis.token)
+client.login(DIS_token)
 
-// TELEGRAM
-bot.start((ctx) => ctx.reply(''))
-bot.help((ctx) => ctx.reply(''))
+bot.start((ctx) => ctx.reply(setting.get('general').start))
+bot.help((ctx) => ctx.reply(setting.get('general').help))
 
-
-bot.on('text', (ctx) => {
-    const message = ctx.message.text
-    const author = ctx.message.from.id || ctx.message.from.username
-
-    if (message && author === '566753238' || 'hadiazt') {
-        console.log(message);
-    }
-})
