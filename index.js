@@ -11,3 +11,6 @@ const { Telegraf } = require('telegraf')
 const tlbot = new Telegraf(telegram.token)
 tlbot.launch()
 
+const { Client } = require('discord.js')
+const client = new Client()
+client.login(dis.token)
