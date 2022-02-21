@@ -10,7 +10,7 @@ const { Telegraf } = require('telegraf')
 const bot = new Telegraf(TL_token)
 bot.launch()
 
-const { Client } = require('discord.js')
+const { Client, MessageEmbed } = require('discord.js')
 const client = new Client()
 client.login(DIS_token)
 
@@ -22,27 +22,35 @@ bot.on('message', (ctx) => {
     const message = ctx.update.message.text;
     const authorID = ctx.update.message.from.id;
     const authorUSERNAME = ctx.update.message.from.username;
-    const photo = ctx.update.message.photo[ctx.update.message.photo.length - 1].file_id;
+
 
     if (!LANG) {
-        ctx.reply(setting.get('general').langerr)
+        return ctx.reply(setting.get('general').langerr);
+    } else {
         if (!DiscordChannelID) {
-            ctx.reply(setting.get('general').langerr)
+            if (LANG === 'KR') {
+                return ctx.reply()
+            } else if (LANG === 'EN') {
+                return ctx.reply()
+            } else if (LANG === 'IR') {
+                return ctx.reply()
+            }
         } else {
-            if (message && photo) {
+            if (message || photo) {
+
+                var EMBEDMSG = new MessageEmbed()
+                    .setTimestamp()
                 if (LANG === 'KR') {
 
-                    client.channels.cache.get(CHANNEL).send()
+                    client.channels.cache.get(CHANNEL).send(EMBEDMSG)
                 } else if (LANG === 'EN') {
 
-                    client.channels.cache.get(CHANNEL).send()
+                    client.channels.cache.get(CHANNEL).send(EMBEDMSG)
                 } else if (LANG === 'IR') {
 
-                    client.channels.cache.get(CHANNEL).send()
+                    client.channels.cache.get(CHANNEL).send(EMBEDMSG)
                 }
             }
         }
-    } else {
-        ctx.reply(setting.get('general').langerr)
     }
 })
