@@ -1,0 +1,30 @@
+{
+  "name": "tl-dis-bot",
+  "version": "1.0.0",
+  "description": "You Can Easly Transfer Telegram Messages To Discord Channel Or DM",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hadiazt/Tl-Dis-Bot.git"
+  },
+  "keywords": [
+    "discord",
+    "chat",
+    "telegram",
+    "export",
+    "data"
+  ],
+  "author": "hadi.az",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hadiazt/Tl-Dis-Bot/issues"
+  },
+  "homepage": "https://github.com/hadiazt/Tl-Dis-Bot#readme",
+  "dependencies": {
+    "discord.js": "^12.5.3",
+    "telegraf": "^4.7.0"
+  }
+}
