@@ -1,0 +1,11 @@
+{
+    "tltoken": "TELERAM_BOT_TOKEN FROM @BotFather",
+    "distoken": "DISCORD_BOT_TOKEN",
+    "general": {
+        "lang": "sdcds",
+        "DiscordChannelID": "",
+        "start": "🇺🇸 For start use /help command\n\n🇰🇷 시작하려면 /help 명령을 사용하십시오\n\nبرای شروع از دستور /help استفاده کنید 🇮🇷",
+        "help": "🇺🇸 Welcome, your ID has been set as the owner of the robot\n\n🇰🇷 환영합니다. 귀하의 ID는 로봇의 소유자로 설정되었습니다\n\nخوش آمدید ای دی شما به عنوان صاحب ربات ست شد 🇮🇷",
+        "langerr": "🇺🇸 Please Set Lang Object In data/config.json\nFrom KR / EN / IR\n\n🇰🇷 KR / EN / IR 의 data/config.json에서 Lang 개체를 설정하십시오\n\nلطفا در مسیر data/config.json آبجکت lang را تعریف کنید 🇮🇷"
+    }
+}
