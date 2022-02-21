@@ -25,6 +25,7 @@
   "homepage": "https://github.com/hadiazt/Tl-Dis-Bot#readme",
   "dependencies": {
     "discord.js": "^12.5.3",
-    "telegraf": "^4.7.0"
+    "telegraf": "^4.7.0",
+    "beta.db":"^3.0.2"
   }
 }
