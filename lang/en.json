@@ -1,0 +1,7 @@
+{
+    "channelerr": "Please set Discord Log Channel ID",
+    "EMBED": {
+        "TITLE": "New Message From : ",
+        "DES": "Content :\n"
+    }
+}
