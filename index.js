@@ -23,21 +23,19 @@ bot.on('message', (ctx) => {
     const authorID = ctx.update.message.from.id;
     const authorUSERNAME = ctx.update.message.from.username;
 
-
-    if (!LANG) {
-        return ctx.reply(setting.get('general').langerr);
-    } else {
-        if (!DiscordChannelID) {
-            if (LANG === 'KR') {
-                return ctx.reply()
-            } else if (LANG === 'EN') {
-                return ctx.reply()
-            } else if (LANG === 'IR') {
-                return ctx.reply()
-            }
+    if (message) {
+        if (!LANG) {
+            return ctx.reply(setting.get('general').langerr);
         } else {
-            if (message || photo) {
-
+            if (!DiscordChannelID) {
+                if (LANG === 'KR') {
+                    return ctx.reply()
+                } else if (LANG === 'EN') {
+                    return ctx.reply()
+                } else if (LANG === 'IR') {
+                    return ctx.reply()
+                }
+            } else {
                 var EMBEDMSG = new MessageEmbed()
                     .setTimestamp()
                 if (LANG === 'KR') {
