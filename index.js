@@ -6,6 +6,7 @@ var DIS_token = setting.get('distoken');
 var LANG = setting.get('general').lang; // KR / EN / IR
 var CHANNEL = setting.get('general').DiscordChannelID
 
+
 const { Telegraf } = require('telegraf')
 const bot = new Telegraf(TL_token)
 bot.launch()
@@ -27,28 +28,41 @@ bot.on('message', (ctx) => {
         if (!LANG) {
             return ctx.reply(setting.get('general').langerr);
         } else {
-            if (!DiscordChannelID) {
-                if (LANG === 'KR') {
-                    return ctx.reply()
-                } else if (LANG === 'EN') {
-                    return ctx.reply()
-                } else if (LANG === 'IR') {
-                    return ctx.reply()
+            if (LANG === 'KR' || LANG === 'EN' || LANG === 'IR') {
+                const lan = new Database(`./lang/${LANG}.json`)
+                if (!CHANNEL) {
+                    if (LANG === 'KR') {
+                        return ctx.reply(lan.get('channelerr'))
+                    } else if (LANG === 'EN') {
+                        return ctx.reply(lan.get('channelerr'))
+                    } else if (LANG === 'IR') {
+                        return ctx.reply(lan.get('channelerr'))
+                    }
+                } else {
+                    var EMBEDMSG = new MessageEmbed()
+                        .setTimestamp()
+                        .setColor('#16ad3f')
+                    if (LANG === 'KR') {
+                        EMBEDMSG.setTitle(lan.get('EMBED').TITLE + authorUSERNAME + " | " + authorID)
+                        EMBEDMSG.setDescription(lan.get('EMBED').DES + message)
+                        client.channels.cache.get(CHANNEL).send(EMBEDMSG)
+                    } else if (LANG === 'EN') {
+                        EMBEDMSG.setTitle(lan.get('EMBED').TITLE + authorUSERNAME + " | " + authorID)
+                        EMBEDMSG.setDescription(lan.get('EMBED').DES + message)
+                        client.channels.cache.get(CHANNEL).send(EMBEDMSG)
+                    } else if (LANG === 'IR') {
+                        EMBEDMSG.setTitle(lan.get('EMBED').TITLE + authorUSERNAME + " | " + authorID)
+                        EMBEDMSG.setDescription(lan.get('EMBED').DES + message)
+                        client.channels.cache.get(CHANNEL).send(EMBEDMSG)
+                    }
                 }
             } else {
-                var EMBEDMSG = new MessageEmbed()
-                    .setTimestamp()
-                if (LANG === 'KR') {
-
-                    client.channels.cache.get(CHANNEL).send(EMBEDMSG)
-                } else if (LANG === 'EN') {
-
-                    client.channels.cache.get(CHANNEL).send(EMBEDMSG)
-                } else if (LANG === 'IR') {
-
-                    client.channels.cache.get(CHANNEL).send(EMBEDMSG)
-                }
+                return ctx.reply(setting.get('general').langerr);
             }
         }
     }
 })
+
+process.on('unhandledRejection', err => {
+    console.log(err);
+});
