@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img src="https://cdn-icons-png.flaticon.com/512/1902/1902654.png" width="224px" alt="En Dictionary"/>
+  <img src="https://cdn.discordapp.com/attachments/780443230176280596/946651517056868352/telegram-logo-png-0.png" width="224px" alt="En Dictionary"/>
 <br/>
 Telegram Discord Bot
 </h1>
